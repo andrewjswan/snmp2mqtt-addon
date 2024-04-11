@@ -68,12 +68,6 @@ schema:
       priv_key: str?
       priv_protocol: str?
       version: str?
-      sensors:
-        - oid: str
-          name: str
-          unit_of_measurement: str?
-          transform: str?
-          icon: str?
-          binary_sensor: bool?
+      sensors: str?
 
   log: list(debug|info|warning|error)?
