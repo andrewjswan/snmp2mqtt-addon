@@ -34,7 +34,9 @@ options:
     host: "localhost"
     port: 1883
 
-  targets: []
+  homeassistant:
+    discovery: true
+    prefix: "homeassistant"
 
 schema:
   mqtt:
@@ -55,19 +57,5 @@ schema:
   homeassistant:
     discovery: bool?
     prefix: str?
-
-  targets:
-    - host: str
-      name: str?
-      scan_interval: int?
-      device_manufacturer: str?
-      device_model: str?
-      suggested_area: str?
-      auth_key: str?
-      auth_protocol: str?
-      priv_key: str?
-      priv_protocol: str?
-      version: str?
-      sensors: str?
 
   log: list(debug|info|warning|error)?
