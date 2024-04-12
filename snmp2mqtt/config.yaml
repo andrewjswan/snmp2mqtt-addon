@@ -20,7 +20,7 @@ ingress: true
 map: 
   - addons:rw
   - all_addon_configs:rw
-  - homeassistant_config:rw
+  - config:rw
   - share:rw
   - ssl:rw
 
@@ -29,13 +29,18 @@ services:
 
 homeassistant: 2024.1.0
 
+panel_icon: mdi:cog-transfer-outline
+panel_title: SMTP2MQTT
+
 options:
   mqtt:
     host: "localhost"
     port: 1883
 
+  targets_path: "/config/addons_config/snmp2mqtt/targets.yaml"
+
   homeassistant:
-    discovery: true
+    discovery: false
     prefix: "homeassistant"
 
 schema:
@@ -53,6 +58,8 @@ schema:
     cert: str?
     key: str?
     reject_unauthorized: bool?
+
+  targets_path: str
 
   homeassistant:
     discovery: bool?

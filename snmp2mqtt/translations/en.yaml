@@ -45,6 +45,10 @@ configuration:
     name: Reject unauthorized
     description: If not false, the server certificate is verified against the list of supplied CAs. Override with caution (default - true when using TLS)
 
+  targets_path:
+    name: Config file with SNMP Targets
+    description: Full path for config file with SNMP Targets
+
   homeassistant:
     name: Home Assistant
   discovery: 

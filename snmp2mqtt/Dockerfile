@@ -1,9 +1,43 @@
-FROM dchesterton/snmp2mqtt:latest
+ARG BUILD_FROM
 
-# Setup base
+### Build snmp2mqtt
+FROM node:16-alpine AS builder
+
+# Packages
 RUN \
   apk add --no-cache --virtual .build-dependencies \
-    yq
+    git
+
+WORKDIR /app
+
+# Clone
+RUN \
+  git clone https://github.com/dchesterton/snmp2mqtt.git /tmp/snmp2mqtt \
+
+  && cd /tmp/snmp2mqtt \
+
+  && cp package.json /app \
+  && cp yarn.lock /app \
+  && cp tsconfig.json /app \
+
+  && mkdir -p /app/src \
+  && cp src/* /app/src
+
+# Build
+RUN yarn install --frozen-lockfile
+RUN yarn build
+
+RUN mv /app/node_modules /app/node_modules_dev
+RUN yarn install --frozen-lockfile --production
+
+### Addon
+FROM $BUILD_FROM
+STOPSIGNAL SIGINT
+
+# Packages
+RUN \
+  apk add --no-cache --virtual .build-dependencies \
+    yq nodejs npm
 
 # Build arguments
 ARG BUILD_ARCH
@@ -26,5 +60,18 @@ LABEL \
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+# Start snmp2mqtt
+WORKDIR /app
+
+COPY --from=builder /app/node_modules /app/node_modules
+COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/package.json /app/package.json
+
+# NPM
+RUN \
+  cd /app \
+  && npm install \
+  && npm rebuild
 
 CMD [ "/run.sh" ]
