@@ -32,6 +32,12 @@ configuration:
   qos: 
     name: QOS
     description: Payloads QOS (default - 0)
+  base_topic:
+    name: Base topic
+    description: Base level of the topic (default - snmp2mqtt)
+  host_name_as_target: 
+    name: Host name as target topic
+    decription: Use the targets name instead of the host as the MQTT topic (default - false)
   ca:
     name: CA
     description: CA for TLS connection (default - none)

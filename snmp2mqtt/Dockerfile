@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 
 ### Build snmp2mqtt
-FROM node:16-alpine AS builder
+FROM node:lts-alpine AS builder
 
 # Packages
 RUN \
@@ -10,17 +10,16 @@ RUN \
 
 WORKDIR /app
 
+ARG SOURCE_REPO=andrewjswan
+
 # Clone
 RUN \
-  git clone https://github.com/dchesterton/snmp2mqtt.git /tmp/snmp2mqtt \
-
+  git clone https://github.com/${SOURCE_REPO}/snmp2mqtt.git /tmp/snmp2mqtt \
+  && mkdir -p /app/src \
   && cd /tmp/snmp2mqtt \
-
   && cp package.json /app \
   && cp yarn.lock /app \
   && cp tsconfig.json /app \
-
-  && mkdir -p /app/src \
   && cp src/* /app/src
 
 # Build

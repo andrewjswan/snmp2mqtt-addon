@@ -1,6 +1,6 @@
 ---
 name: SNMP2MQTT
-version: 1.0.0
+version: 1.0.1
 slug: snmp2mqtt
 description: SNMP2MQTT expose SNMP sensors to MQTT.
 url: https://github.com/andrewjswan/snmp2mqtt-addon/
@@ -15,7 +15,6 @@ arch:
 startup: application
 boot: auto
 init: false
-ingress: true
 
 map: 
   - addons:rw
@@ -54,6 +53,8 @@ schema:
     clean: bool?
     retain: bool?
     qos: int?
+    base_topic: str?
+    host_name_as_target: bool?
     ca: str?
     cert: str?
     key: str?
