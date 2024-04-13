@@ -10,6 +10,7 @@
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
 This add-on expose SNMP sensors to MQTT.
+Helps significantly increase the loading speed of Home Assistant when the SNMP target is disabled.
 
 ## Confururation settings
 
