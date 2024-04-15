@@ -95,4 +95,5 @@ targets:
 
 ## Notes
 
-Builded from https://github.com/dchesterton/snmp2mqtt
+Builded from https://github.com/andrewjswan/snmp2mqtt/
+Based on https://github.com/dchesterton/snmp2mqtt
