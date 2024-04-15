@@ -2,15 +2,17 @@
 name: SNMP2MQTT
 version: 1.0.5
 slug: snmp2mqtt
-description: SNMP2MQTT expose SNMP sensors to MQTT.
+description: SNMP2MQTT expose SNMP sensors to MQTT
 url: https://github.com/andrewjswan/snmp2mqtt-addon/
+
+codenotary: notary@home-assistant.io
 
 arch: 
   - amd64
   - aarch64
   - armv7
 
-#image: dchesterton/snmp2mqtt:latest
+#image: andrewjswan/snmp2mqtt-addon:latest
 
 startup: application
 boot: auto
