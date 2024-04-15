@@ -5,7 +5,7 @@
 ## General
 
 [![haaddon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
-[![snmp2mqtt](https://img.shields.io/badge/SNMP-MQTT-blue.svg)](https://github.com/andrewjswan/snmp2mqtt-addon/)
+[![snmp2mqtt](https://img.shields.io/badge/SNMP-MQTT-blue.svg)](https://github.com/andrewjswan/snmp2mqtt/)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/snmp2mqtt-addon?color=blue)](https://github.com/andrewjswan/snmp2mqtt-addon/blob/master/LICENSE)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
