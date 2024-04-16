@@ -1,7 +1,7 @@
 ARG BUILD_FROM
 
 ### Build snmp2mqtt
-FROM node:lts-alpine AS builder
+FROM node:lts-alpine3.15 AS builder
 
 # Packages
 RUN \
