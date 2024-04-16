@@ -2,7 +2,7 @@
 
 ## 2024.4.7 - 2024-04-16
 
-- Add 'availability_mode' to `sensors` scheme, valid entries are `all`, `any`, and `latest`. (default: `all`)
+- Add `availability_mode` to `sensors` scheme, valid entries are `all`, `any`, and `latest`. (default: `all`)
 
 ## 2024.4.5 - 2024-04-15
 
