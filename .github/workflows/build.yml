@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   REGISTRY_IMAGE: ghcr.io/${{ github.repository }}
@@ -73,10 +74,18 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v4
         
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./snmp2mqtt"
+
       - name: Test Build
         uses: home-assistant/builder@master
         with:
           args: |
             --test \
             --all \
-            --target addon-folder
+            --target addon-folder \
+            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
+            --addon
