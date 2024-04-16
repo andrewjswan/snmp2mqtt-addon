@@ -4,10 +4,12 @@
 
 ## General
 
-[![haaddon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
-[![snmp2mqtt](https://img.shields.io/badge/SNMP-MQTT-blue.svg)](https://github.com/andrewjswan/snmp2mqtt/)
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/andrewjswan/snmp2mqtt?label=snmp2mqtt%40based)](https://github.com/andrewjswan/snmp2mqtt)
+[![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
+[![snmp2mqtt](https://img.shields.io/badge/SNMP-MQTT-blue.svg)](https://github.com/andrewjswan/snmp2mqtt-addon/)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/andrewjswan/snmp2mqtt-addon/build.yml?logo=github)](https://github.com/andrewjswan/snmp2mqtt-addon/actions)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/snmp2mqtt-addon?color=blue)](https://github.com/andrewjswan/snmp2mqtt-addon/blob/master/LICENSE)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/andrewjswan/snmp2mqtt-addon?include_prereleases)](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/andrewjswan/snmp2mqtt?label=snmp2mqtt%40based)](https://github.com/andrewjswan/snmp2mqtt)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
 This add-on expose SNMP sensors to MQTT.
