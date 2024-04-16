@@ -66,7 +66,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "${{ needs.init.outputs.version }}: SNMP2MQTT Addon"
+          name: "${{ needs.init.outputs.version }}: SNMP2MQTT"
           tag_name: ${{ needs.init.outputs.version }}
           body: "## [Addon Changelog](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)"
           generate_release_notes: true
@@ -94,5 +94,5 @@ jobs:
             --${{ matrix.arch }} \
             --target snmp2mqtt \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --image "ghcr.io/${{ github.repository_owner }}/snmp2mqtt-addon-{arch}" \
+            --image "snmp2mqtt-addon-{arch}" \
             --addon
