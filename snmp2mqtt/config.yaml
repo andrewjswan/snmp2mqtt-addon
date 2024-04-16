@@ -12,7 +12,7 @@ arch:
   - aarch64
   - armv7
 
-#image: andrewjswan/snmp2mqtt-addon:latest
+#image: ghcr.io/andrewjswan/snmp2mqtt:latest
 
 startup: application
 boot: auto
