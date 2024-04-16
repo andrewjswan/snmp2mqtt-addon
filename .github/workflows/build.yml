@@ -60,6 +60,7 @@ jobs:
         with:
           name: SNMP2MQTT Addon v${{ needs.new-version.outputs.config }}
           tag_name: ${{ needs.new-version.outputs.config }}
+          body: "Changelog: https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md"
           generate_release_notes: true
 
   test:
