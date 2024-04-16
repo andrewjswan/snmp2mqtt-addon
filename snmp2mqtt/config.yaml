@@ -1,5 +1,6 @@
 ---
 name: SNMP2MQTT
+
 version: 1.0.7
 slug: snmp2mqtt
 description: SNMP2MQTT expose SNMP sensors to MQTT
