@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  REGISTRY_IMAGE: ghcr.io/${{ github.repository }}
-
 jobs:
   changes:
     name: Config / Changed
@@ -96,5 +93,5 @@ jobs:
             --test \
             --${{ matrix.arch }} \
             --target snmp2mqtt \
-            --docker-hub "${{ env.REGISTRY_IMAGE }}" \
+            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
