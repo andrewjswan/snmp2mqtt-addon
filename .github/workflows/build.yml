@@ -93,5 +93,4 @@ jobs:
             --test \
             --${{ matrix.arch }} \
             --target snmp2mqtt \
-            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
