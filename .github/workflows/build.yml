@@ -94,5 +94,5 @@ jobs:
             --${{ matrix.arch }} \
             --target snmp2mqtt \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --image "ghcr.io/${{ github.repository_owner }}/snmp2mqtt-addon-{arch}
+            --image "ghcr.io/${{ github.repository_owner }}/snmp2mqtt-addon-{arch}" \
             --addon
