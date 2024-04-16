@@ -96,5 +96,5 @@ jobs:
             --test \
             --${{ matrix.arch }} \
             --target snmp2mqtt \
-            --docker-hub "ghcr.io/${{ env.REGISTRY_IMAGE }}" \
+            --docker-hub "${{ env.REGISTRY_IMAGE }}" \
             --addon
