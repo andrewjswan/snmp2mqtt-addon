@@ -56,21 +56,6 @@ jobs:
         with:
           path: "./snmp2mqtt"
 
-  release:
-    name: Release
-    if: ${{ needs.init.outputs.tag != needs.init.outputs.version }}
-    needs: 
-      - init
-    runs-on: ubuntu-latest
-    steps:
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: "${{ needs.init.outputs.version }}: SNMP2MQTT"
-          tag_name: ${{ needs.init.outputs.version }}
-          body: "## [Addon Changelog](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)"
-          generate_release_notes: true
-
   test:
     name: Test / Build
     if: ${{ needs.changes.outputs.changes == 'true' }}
@@ -96,3 +81,17 @@ jobs:
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --image "snmp2mqtt-addon-{arch}" \
             --addon
+  release:
+    name: Release
+    needs: 
+      - init
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${{ needs.init.outputs.version }}: SNMP2MQTT"
+          tag_name: ${{ needs.init.outputs.version }}
+          body: "## [Addon Changelog](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)"
+          generate_release_notes: true
