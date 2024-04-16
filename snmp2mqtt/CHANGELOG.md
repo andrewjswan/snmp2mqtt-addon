@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.0.7 - 2024-04-16
+
+- Add 'availability_mode' to `sensors` scheme, valid entries are `all`, `any`, and `latest`. (default: `all`)
+
 ## 1.0.5 - 2024-04-15
 
 - Add `template` to target sensor scheme
