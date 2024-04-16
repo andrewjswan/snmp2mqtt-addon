@@ -18,6 +18,7 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
+
       - name: Check for Changes
         uses: dorny/paths-filter@v3
         id: changes
@@ -26,41 +27,50 @@ jobs:
             scr:
               - 'snmp2mqtt/**'
 
-  new-version:
+  init:
     name: Version / Changed
     if: ${{ needs.changes.outputs.changes == 'true' }}
     needs: 
       - changes
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.get-latest-tag.outputs.tag }}
-      config: ${{ steps.yaml.outputs.version }}
+      tag: ${{ steps.get-latest-tag.outputs.tag }}
+      version: ${{ steps.yaml.outputs.version }}
+      architectures: ${{ steps.info.outputs.architectures }}
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
+
       - name: Get Latest Tag
         uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
         with:
           semver_only: true      
-      - name: Read Version from Config
+
+      - name: Get Version from Config
         uses: christian-ci/action-yaml-github-output@v2
         id: yaml
         with:
           file_path: ${{ github.workspace }}/snmp2mqtt/config.yaml
 
+      - name: Get Addon Information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./snmp2mqtt"
+
   release:
     name: Release
-    if: ${{ needs.new-version.outputs.config != needs.new-version.outputs.version }}
+    if: ${{ needs.init.outputs.tag != needs.init.outputs.version }}
     needs: 
-      - new-version
+      - init
     runs-on: ubuntu-latest
     steps:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          name: SNMP2MQTT Addon v${{ needs.new-version.outputs.config }}
-          tag_name: ${{ needs.new-version.outputs.config }}
+          name: "${{ needs.init.outputs.version }}: SNMP2MQTT Addon"
+          tag_name: ${{ needs.init.outputs.version }}
           body: "## [Addon Changelog](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)"
           generate_release_notes: true
 
@@ -69,23 +79,22 @@ jobs:
     if: ${{ needs.changes.outputs.changes == 'true' }}
     needs: 
       - changes
+      - init
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
         
-      - name: Get information
-        id: info
-        uses: home-assistant/actions/helpers/info@master
-        with:
-          path: "./snmp2mqtt"
-
       - name: Test Build
         uses: home-assistant/builder@master
         with:
           args: |
             --test \
-            --all \
+            --${{ matrix.arch }} \
             --target snmp2mqtt \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
