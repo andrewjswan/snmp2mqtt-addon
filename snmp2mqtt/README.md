@@ -90,4 +90,4 @@ targets:
 
 ## Notes
 
-Builded from https://github.com/dchesterton/snmp2mqtt
+Builded from https://github.com/andrewjswan/snmp2mqtt/
