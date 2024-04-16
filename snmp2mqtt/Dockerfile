@@ -55,7 +55,7 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Andrew J.Swan <andrewjswan@addons.custom.community>"
+    maintainer="Andrew J.Swan <andrewjswan@addons.community>"
 
 # Copy data for add-on
 COPY run.sh /
