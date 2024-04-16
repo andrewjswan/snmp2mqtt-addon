@@ -1,7 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file, in reverse chronological order by release.
-
 ## 2024.4.7 - 2024-04-16
 
 - Add 'availability_mode' to `sensors` scheme, valid entries are `all`, `any`, and `latest`. (default: `all`)
