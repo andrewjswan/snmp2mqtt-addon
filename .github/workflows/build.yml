@@ -81,8 +81,10 @@ jobs:
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --image "snmp2mqtt-addon-{arch}" \
             --addon
+
   release:
     name: Release
+    if: ${{ needs.init.outputs.tag != needs.init.outputs.version }}
     needs: 
       - init
       - test
