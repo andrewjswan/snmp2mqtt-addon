@@ -94,7 +94,8 @@ jobs:
       - init
       - test
     permissions:
-      security-events: write
+      contents: read
+      packages: write
     secrets: inherit
 
   release:

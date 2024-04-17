@@ -1,5 +1,10 @@
 # Changelog
 
+## 2024.4.9 - 2024-04-17
+
+- Run script update
+- Technical improvements
+
 ## 2024.4.7 - 2024-04-16
 
 - Add `availability_mode` to `sensors` scheme, valid entries are `all`, `any`, and `latest`. (default: `all`)

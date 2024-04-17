@@ -36,6 +36,9 @@ jobs:
       fail-fast: false
       matrix:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
