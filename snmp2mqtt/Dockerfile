@@ -68,10 +68,4 @@ COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/package.json /app/package.json
 
-# NPM
-RUN \
-  cd /app \
-  && npm install \
-  && npm rebuild
-
 CMD [ "/run.sh" ]

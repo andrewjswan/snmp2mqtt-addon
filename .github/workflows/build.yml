@@ -26,14 +26,12 @@ jobs:
 
   init:
     name: Version / Changed
-    if: ${{ needs.changes.outputs.changes == 'true' }}
-    needs: 
-      - changes
     runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.get-latest-tag.outputs.tag }}
       version: ${{ steps.yaml.outputs.version }}
       architectures: ${{ steps.info.outputs.architectures }}
+      description: ${{ steps.desc.outputs.description }}
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
@@ -48,13 +46,19 @@ jobs:
         uses: christian-ci/action-yaml-github-output@v2
         id: yaml
         with:
-          file_path: ${{ github.workspace }}/snmp2mqtt/config.yaml
+          file_path: ./snmp2mqtt/config.yaml
 
       - name: Get Addon Information
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
           path: "./snmp2mqtt"
+
+      - name: Get Description
+        id: desc
+        run: |
+          echo "description="$(cat CHANGELOG.md | awk '/^##/{if(++i>1)exit} i' | awk '{if(NR>1)print}')"" >> $GITHUB_OUTPUT
+        working-directory: ./snmp2mqtt
 
   test:
     name: Test / Build
@@ -106,5 +110,5 @@ jobs:
         with:
           name: "${{ needs.init.outputs.version }}: SNMP2MQTT"
           tag_name: ${{ needs.init.outputs.version }}
-          body: "## [Addon Changelog](https://github.com/andrewjswan/snmp2mqtt-addon/blob/main/snmp2mqtt/CHANGELOG.md)"
+          body: ${{ needs.init.outputs.description }}
           generate_release_notes: true
