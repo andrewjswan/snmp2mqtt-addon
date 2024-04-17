@@ -82,6 +82,17 @@ jobs:
             --image "snmp2mqtt-addon-{arch}" \
             --addon
 
+  docker:
+    name: Docker
+    if: ${{ needs.init.outputs.tag != needs.init.outputs.version }}
+    uses: ./.github/workflows/docker.yml
+    needs: 
+      - init
+      - test
+    permissions:
+      security-events: write
+    secrets: inherit
+
   release:
     name: Release
     if: ${{ needs.init.outputs.tag != needs.init.outputs.version }}
