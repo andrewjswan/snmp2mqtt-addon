@@ -1,0 +1,65 @@
+name: SNMP2MQTT / Docker
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  init:
+    name: Addon / Init
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.yaml.outputs.version }}
+      architectures: ${{ steps.info.outputs.architectures }}
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - name: Get Version from Config
+        uses: christian-ci/action-yaml-github-output@v2
+        id: yaml
+        with:
+          file_path: ${{ github.workspace }}/snmp2mqtt/config.yaml
+
+      - name: Get Addon Information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./snmp2mqtt"
+
+  docker:
+    name: Docker / Build
+    needs: 
+      - init
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: ${{ fromJson(needs.init.outputs.architectures) }}
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+        
+      - name: Build
+        uses: home-assistant/builder@master
+        with:
+          args: |
+            --${{ matrix.arch }} \
+            --target snmp2mqtt \
+            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
+            --image "snmp2mqtt-addon-{arch}" \
+            --addon
+
+  ci-status:
+    name: Status
+    runs-on: ubuntu-latest
+    needs:
+      - docker
+    if: always()
+    steps:
+      - name: Success
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: Failure
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
