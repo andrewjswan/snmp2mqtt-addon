@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.4.13 - 2024-04-18
+
+- Add `online` mode to sensor `availability_mode`
+
 ## 2024.4.9 - 2024-04-17
 
 - Run script update
