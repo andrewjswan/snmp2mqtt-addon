@@ -7,7 +7,7 @@ url: https://github.com/andrewjswan/snmp2mqtt-addon/
 
 codenotary: notary@home-assistant.io
 
-arch: 
+arch:
   - amd64
   - aarch64
   - armv7
@@ -18,7 +18,7 @@ startup: application
 boot: auto
 init: false
 
-map: 
+map:
   - addons:rw
   - all_addon_configs:rw
   - config:rw
