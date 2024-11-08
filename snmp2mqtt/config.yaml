@@ -1,6 +1,6 @@
 ---
 name: SNMP2MQTT
-version: 2024.4.13
+version: 2024.11.1
 slug: snmp2mqtt
 description: SNMP2MQTT expose SNMP sensors to MQTT
 url: https://github.com/andrewjswan/snmp2mqtt-addon/
