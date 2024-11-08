@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024.11.1 - 2024-11-08
+
+- Publication in the general repository
+
 ## 2024.4.13 - 2024-04-18
 
 - Add `online` mode to sensor `availability_mode`
