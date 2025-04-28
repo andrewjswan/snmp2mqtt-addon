@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025.5.1 - 2025-04-26
+
+- Bump snmp2mqtt to 1.0.16
+
 ## 2025.2.1 - 2025-02-05
 
 - Remove `via_device`
