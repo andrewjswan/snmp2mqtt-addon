@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025.10.1 - 2025-10-10
+
+- Bump snmp2mqtt to 1.0.17
+- Change Home Assistant Discovery
+
 ## 2025.5.1 - 2025-04-26
 
 - Bump snmp2mqtt to 1.0.16
