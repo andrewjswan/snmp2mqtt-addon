@@ -1,5 +1,9 @@
 # Changelog
 
+## 2025.10.3 - 2025-10-10
+
+- Bump snmp2mqtt to 1.0.18
+
 ## 2025.10.1 - 2025-10-10
 
 - Bump snmp2mqtt to 1.0.17
