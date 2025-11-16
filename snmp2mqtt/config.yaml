@@ -8,7 +8,6 @@ url: https://github.com/andrewjswan/snmp2mqtt-addon/
 arch:
   - amd64
   - aarch64
-  - armv7
 
 image: ghcr.io/andrewjswan/snmp2mqtt-addon-{arch}
 

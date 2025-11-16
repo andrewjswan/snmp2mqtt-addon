@@ -3,6 +3,7 @@
 ## 2025.11.1 - 2025-11-16
 
 - Remove deprecated `codenotary` fields
+- Remove `armv7` support
 
 ## 2025.10.3 - 2025-10-10
 
