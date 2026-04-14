@@ -1,6 +1,6 @@
 ---
 name: SNMP2MQTT
-version: 2025.11.1
+version: 2026.4.1
 slug: snmp2mqtt
 description: SNMP2MQTT expose SNMP sensors to MQTT
 url: https://github.com/andrewjswan/snmp2mqtt-addon/
@@ -9,7 +9,7 @@ arch:
   - amd64
   - aarch64
 
-image: ghcr.io/andrewjswan/snmp2mqtt-addon-{arch}
+image: ghcr.io/andrewjswan/snmp2mqtt-addon
 
 startup: application
 boot: auto

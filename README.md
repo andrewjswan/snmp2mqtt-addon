@@ -1,10 +1,10 @@
 <div align="center">
-<h1>SNMP2MQTT Add-on</h1>
+<h1> SNMP2MQTT</h1>
 </div>
 
 ## General
 
-[![ha addon_badge](https://img.shields.io/badge/HA-Addon-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
+[![ha app_badge](https://img.shields.io/badge/HA-App-blue.svg)](https://developers.home-assistant.io/docs/add-ons)
 [![snmp2mqtt](https://img.shields.io/badge/SNMP-MQTT-blue.svg)](https://github.com/andrewjswan/snmp2mqtt-addon/)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/andrewjswan/snmp2mqtt-addon/build.yml?logo=github)](https://github.com/andrewjswan/snmp2mqtt-addon/actions)
 [![GitHub](https://img.shields.io/github/license/andrewjswan/snmp2mqtt-addon?color=blue)](https://github.com/andrewjswan/snmp2mqtt-addon/blob/master/LICENSE)
@@ -12,7 +12,7 @@
 [![GitHub package.json version](https://img.shields.io/github/package-json/v/andrewjswan/snmp2mqtt?label=snmp2mqtt%40based)](https://github.com/andrewjswan/snmp2mqtt)
 [![StandWithUkraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
 
-This add-on expose SNMP sensors to MQTT.
+This App expose SNMP sensors to MQTT.
 Helps significantly increase the loading speed of Home Assistant when the SNMP target is disabled.
 
 ## Architecture
@@ -21,13 +21,13 @@ Helps significantly increase the loading speed of Home Assistant when the SNMP t
 
 ## Installation
 
-Add the repository URL under **Supervisor → Add-on Store** in your Home Assistant front-end:
+Add the repository URL under **Supervisor → App Store** in your Home Assistant front-end:
 
     https://github.com/andrewjswan/snmp2mqtt-addon/
 
 ## Confururation settings
 
-Configure the add-on via your Home Assistant front-end under **Supervisor → Dashboard → SNMP2MQTT**.
+Configure the app via your Home Assistant front-end under **Supervisor → Dashboard → SNMP2MQTT**.
 
 ```
 mqtt:

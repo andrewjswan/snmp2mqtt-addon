@@ -30,7 +30,7 @@ RUN yarn build
 RUN mv /app/node_modules /app/node_modules_dev
 RUN yarn install --frozen-lockfile --production
 
-### Addon
+### App
 FROM $BUILD_FROM
 STOPSIGNAL SIGINT
 
@@ -53,7 +53,7 @@ LABEL \
     io.hass.name="${BUILD_NAME}" \
     io.hass.description="${BUILD_DESCRIPTION}" \
     io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
+    io.hass.type="app" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="Andrew J.Swan <andrewjswan@addons.community>" \
     org.opencontainers.image.title="${BUILD_NAME}" \
@@ -67,7 +67,7 @@ LABEL \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md"
 
-# Copy data for add-on
+# Copy data for app
 COPY run.sh /
 RUN chmod a+x /run.sh
 
