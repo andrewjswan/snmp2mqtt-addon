@@ -3,7 +3,7 @@ name: SNMP2MQTT / App
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 permissions:
