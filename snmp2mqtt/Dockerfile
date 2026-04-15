@@ -1,4 +1,4 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 
 ### Build snmp2mqtt
 FROM node:lts-alpine3.22 AS builder
