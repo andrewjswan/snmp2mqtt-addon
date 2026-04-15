@@ -15,7 +15,6 @@ WORKDIR /app
 
 # Clone
 ARG SOURCE_REPO=andrewjswan
-
 ADD "https://api.github.com/repos/${SOURCE_REPO}/snmp2mqtt/commits?per_page=1" latest_commit
 RUN \
   git clone --branch main --single-branch https://github.com/${SOURCE_REPO}/snmp2mqtt.git /tmp/snmp2mqtt \
