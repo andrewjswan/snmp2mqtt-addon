@@ -6,7 +6,10 @@ FROM node:lts-alpine3.22 AS builder
 # Packages
 RUN \
   apk add --no-cache --virtual .build-dependencies \
-    git
+    git \
+    python3 \
+    make \
+    g++
 
 WORKDIR /app
 
