@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.6.1 - 2026-06-30
+
+- Add `state_class` option for sensors
+
 ## 2026.4.3 - 2026-04-15
 
 - Fix `bigint` warning
